@@ -5,10 +5,12 @@ import {RegularFormsComponent} from "./forms/regularforms/regularforms.component
 import {LoginComponent} from "./pages/login/login.component";
 import {IsAuthenticatedGuard} from "./auth/guards/IsAuthenticatedGuard";
 import {PrivilegeGuard} from "./auth/guards/PrivilegeGuard";
+import {IsNotAuthenticatedGuard} from "./auth/guards/IsNotAuthenticatedGuard";
 
 export const AppRoutes: Routes = [
     {
         path: 'login-form',
+        canActivate:[IsNotAuthenticatedGuard],
         loadChildren: () =>
             import('./pages/login/login.module').then(m => m.LoginModule)
     }, {
@@ -26,23 +28,23 @@ export const AppRoutes: Routes = [
                 loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
             }, {
                 path: 'components',
-                canActivate: [PrivilegeGuard],
+                canActivate: [IsAuthenticatedGuard,PrivilegeGuard],
                 data: {requiredPrivilege: 'COMPONENTS_VIEW'},
                 loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
             }, {
                 path: 'forms',
-                canActivate: [PrivilegeGuard],
+                canActivate: [IsAuthenticatedGuard,PrivilegeGuard],
                 data: {requiredPrivilege: 'FORMS_VIEW'},
                 loadChildren: () => import('./forms/forms.module').then(m => m.Forms)
             }, {
                 path: 'tables',
                 loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule),
-                canActivate: [PrivilegeGuard],
+                canActivate: [IsAuthenticatedGuard,PrivilegeGuard],
                 data: {requiredPrivilege: 'TABLES_VIEW'}
             }, {
                 path: 'maps',
                 loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule),
-                canActivate: [PrivilegeGuard],
+                canActivate: [IsAuthenticatedGuard,PrivilegeGuard],
                 data: {requiredPrivilege: 'MAPS_VIEW'}
             },
         ]
