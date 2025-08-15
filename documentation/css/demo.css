@@ -73,3 +73,12 @@
         position: absolute;
     }
 }
+body, input, textarea, select, button {
+    font-family: 'Poppins', sans-serif; !important;
+}
+input::placeholder,
+textarea::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #888;
+}

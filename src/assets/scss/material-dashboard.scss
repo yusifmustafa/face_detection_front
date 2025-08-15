@@ -14,6 +14,44 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
+
+@use '@angular/material' as mat;
+
+// Material core stillerini yükle
+@include mat.core();
+
+// Custom typography configuration
+$custom-typography: mat.define-typography-config(
+        $font-family: 'Poppins, sans-serif',
+        $headline-1: mat.define-typography-level(96px, 96px, 300),
+        $headline-2: mat.define-typography-level(60px, 60px, 300),
+        $headline-3: mat.define-typography-level(48px, 48px, 400),
+        $headline-4: mat.define-typography-level(34px, 34px, 400),
+        $headline-5: mat.define-typography-level(24px, 24px, 400),
+        $headline-6: mat.define-typography-level(20px, 20px, 500),
+        $subtitle-1: mat.define-typography-level(14px, 14px, 400),
+        $subtitle-2: mat.define-typography-level(14px, 14px, 500),
+        $body-1: mat.define-typography-level(14px, 14px, 400),
+        $body-2: mat.define-typography-level(13px, 14px, 400),
+        $button: mat.define-typography-level(14px, 14px, 500),
+        $caption: mat.define-typography-level(12px, 12px, 400),
+        $overline: mat.define-typography-level(10px, 10px, 400)
+);
+
+// Global typography uygulama
+@include mat.all-component-typographies($custom-typography);
+
+
+body,
+.mat-form-field,
+.mat-input-element,
+.mat-select-value,
+.mat-label,
+.mat-button,
+.mat-radio-label,
+.mat-checkbox-label {
+  font-family: 'Poppins', sans-serif !important;
+}
  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
  @import "core/variables";

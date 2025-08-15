@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -48,9 +48,24 @@ import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 
 import {AppRoutes} from './app.routing';
 import {LoginComponent} from "./pages/login/login.component";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import {PrivilegeGuard} from "./auth/guards/PrivilegeGuard";
+import {AuthService} from "./auth/auth.service";
+import {TokenManager} from "./auth/jwt/TokenManager";
 
 @NgModule({
-    exports: [
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+    ],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+
+        RouterModule.forRoot(AppRoutes, {useHash: true}),
+
         MatAutocompleteModule,
         MatButtonToggleModule,
         MatCardModule,
@@ -80,32 +95,26 @@ import {LoginComponent} from "./pages/login/login.component";
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        MatNativeDateModule
-    ]
-})
-
-@NgModule({
-    imports: [
-        CommonModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        RouterModule.forRoot(AppRoutes, {
-            useHash: true
-        }),
-        HttpClientModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
         SidebarModule,
         NavbarModule,
         FooterModule,
         FixedpluginModule
     ],
-    declarations: [
-        AppComponent,
-        AdminLayoutComponent,
-    ],
     providers: [
-        MatNativeDateModule
+        AuthService,
+        PrivilegeGuard,
+        AuthInterceptor,
+        TokenManager,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

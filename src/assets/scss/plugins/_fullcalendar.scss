@@ -79,7 +79,7 @@ body .fc { /* extra precedence to overcome jqui */
 	font-size: 1em;
 	text-align: center;
 	overflow: hidden;
-	font-family: "Inter", Courier, monospace;
+	font-family: "Poppins",sans-serif;
 
 	/* don't allow browser text-selection */
 	-webkit-touch-callout: none;
@@ -1265,7 +1265,7 @@ be a descendant of the grid when it is being dragged.
 	overflow: hidden;
 	line-height: 8px;
 	font-size: 11px;
-	font-family: Inter;
+	font-family:"Poppins",sans-serif;
 	text-align: center;
 	cursor: s-resize;
 }

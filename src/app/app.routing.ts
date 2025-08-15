@@ -3,19 +3,22 @@ import {Routes} from '@angular/router';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {RegularFormsComponent} from "./forms/regularforms/regularforms.component";
 import {LoginComponent} from "./pages/login/login.component";
+import {IsAuthenticatedGuard} from "./auth/guards/IsAuthenticatedGuard";
+import {PrivilegeGuard} from "./auth/guards/PrivilegeGuard";
 
 export const AppRoutes: Routes = [
     {
-        path: 'login',
+        path: 'login-form',
         loadChildren: () =>
             import('./pages/login/login.module').then(m => m.LoginModule)
     }, {
         path: '',
         component: AdminLayoutComponent,
+        canActivate: [IsAuthenticatedGuard],
         children: [
             {
-                path: '',
-                redirectTo: 'dashboard',
+                path: 'home',
+                redirectTo: 'home',
                 pathMatch: 'full',
             },
             {
@@ -23,32 +26,25 @@ export const AppRoutes: Routes = [
                 loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
             }, {
                 path: 'components',
+                canActivate: [PrivilegeGuard],
+                data: {requiredPrivilege: 'COMPONENTS_VIEW'},
                 loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
             }, {
                 path: 'forms',
+                canActivate: [PrivilegeGuard],
+                data: {requiredPrivilege: 'FORMS_VIEW'},
                 loadChildren: () => import('./forms/forms.module').then(m => m.Forms)
             }, {
                 path: 'tables',
-                loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
+                loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule),
+                canActivate: [PrivilegeGuard],
+                data: {requiredPrivilege: 'TABLES_VIEW'}
             }, {
                 path: 'maps',
-                loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule)
-            }, {
-                path: 'widgets',
-                loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule)
-            }, {
-                path: 'charts',
-                loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule)
-            }, {
-                path: 'calendar',
-                loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)
-            }, {
-                path: '',
-                loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
-            }, {
-                path: '',
-                loadChildren: () => import('./timeline/timeline.module').then(m => m.TimelineModule)
-            }
+                loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule),
+                canActivate: [PrivilegeGuard],
+                data: {requiredPrivilege: 'MAPS_VIEW'}
+            },
         ]
     },
 ];

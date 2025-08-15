@@ -12,14 +12,18 @@ import { PanelsComponent } from './panels/panels.component';
 import { SweetAlertComponent } from './sweetalert/sweetalert.component';
 import { TypographyComponent } from './typography/typography.component';
 import {MaterialModule} from "../../material.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(ComponentsRoutes),
-    FormsModule,
-    MaterialModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(ComponentsRoutes),
+        FormsModule,
+        MaterialModule,
+        MatButtonModule,
+        MatDatepickerModule
+    ],
   declarations: [
       ButtonsComponent,
       GridSystemComponent,

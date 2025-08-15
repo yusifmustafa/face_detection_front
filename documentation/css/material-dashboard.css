@@ -459,7 +459,7 @@ body.swal2-shown {
 
 .swal2-modal {
     background-color: #fff;
-    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-family: "Poppins",sans-serif;
     border-radius: 5px;
     box-sizing: border-box;
     text-align: center;
@@ -563,7 +563,7 @@ body.swal2-shown {
 .swal2-modal .swal2-close {
     font-size: 36px;
     line-height: 36px;
-    font-family: Inter;
+    font-family: "Poppins",sans-serif;
     position: absolute;
     top: 5px;
     right: 13px;
@@ -819,19 +819,19 @@ body.swal2-shown {
 }
 
 .swal2-icon.swal2-warning {
-    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-family: "Poppins",sans-serif;
     color: #f8bb86;
     border-color: #facea8;
 }
 
 .swal2-icon.swal2-info {
-    font-family: 'Inter', sans-serif;
+    font-family: "Poppins",sans-serif;
     color: #3fc3ee;
     border-color: #9de0f6;
 }
 
 .swal2-icon.swal2-question {
-    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    font-family: "Poppins",sans-serif;
     color: #87adbd;
     border-color: #c9dae1;
 }
@@ -1399,7 +1399,7 @@ table.dataTable thead .sorting_desc_disabled:after {
     bottom: 8px;
     right: 8px;
     display: block;
-    font-family: 'Inter';
+    font-family: "Poppins",sans-serif;
     opacity: 0.5;
 }
 
@@ -1507,7 +1507,7 @@ table.dataTable thead .sorting_desc_disabled:after {
     display: inline-block;
     bottom: 1px;
     right: -7px;
-    font-family: 'Inter';
+    font-family: "Poppins",sans-serif;
     opacity: 0.8;
     font-size: 12px;
 }
@@ -1587,7 +1587,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
     box-shadow: 0 0 3px #444;
     box-sizing: content-box;
     text-align: center;
-    font-family: 'Inter', Courier, monospace;
+    font-family: "Poppins",sans-serif;
     line-height: 18px;
     content: '+';
     background-color: #FFF;
@@ -1641,7 +1641,7 @@ table.dataTable.dtr-column > tbody > tr > th.control:before {
     box-shadow: 0 0 3px #444;
     box-sizing: content-box;
     text-align: center;
-    font-family: 'Inter', Courier, monospace;
+    font-family: "Poppins",sans-serif;
     line-height: 14px;
     content: '+';
     background-color: #31b131;
@@ -1995,7 +1995,7 @@ svg {
 }
 
 .mat-calendar {
-    font-family: Inter, "Helvetica Neue", sans-serif;
+    font-family:"Poppins",sans-serif
 }
 
 .mat-calendar-period-button {
@@ -2118,18 +2118,22 @@ svg {
 }
 
 .mat-focused .mat-input-placeholder {
+    font-family: "Poppins",sans-serif;
     color: #9c27b0;
 }
 
 .mat-input-element:disabled {
+    font-family: "Poppins",sans-serif;
     color: grey;
 }
 
 .mat-calendar-body-cell-content:hover {
+    font-family: "Poppins",sans-serif;
     background: #eeeeee;
 }
 
 .mat-input-placeholder.mat-float:not(.mat-empty), .mat-focused .mat-input-placeholder.mat-float {
+    font-family: "Poppins",sans-serif;
     transform: translateY(-0.75em) scale(0.75) perspective(100px) translateZ(0.001px);
     -ms-transform: translateY(-0.75em) scale(0.75);
     width: 133.33333%;
@@ -2241,7 +2245,7 @@ body .fc {
     font-size: 1em;
     text-align: center;
     overflow: hidden;
-    font-family: "Inter", Courier, monospace;
+    font-family: "Poppins",sans-serif;
     /* don't allow browser text-selection */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -3440,7 +3444,7 @@ be a descendant of the grid when it is being dragged.
     overflow: hidden;
     line-height: 8px;
     font-size: 11px;
-    font-family: Inter;
+    font-family: "Poppins",sans-serif;
     text-align: center;
     cursor: s-resize;
 }
@@ -4936,9 +4940,20 @@ be a descendant of the grid when it is being dragged.
 .mat-option span {
     float: right;
 }
+::ng-deep .mat-input-element {
+    font-family: 'Poppins', sans-serif;
+}
+
+::ng-deep .mat-form-field-label {
+    font-family: 'Poppins', sans-serif;
+}
+::ng-deep .mat-form-field-placeholder,
+::ng-deep .mat-form-field-hint {
+    font-family: 'Poppins', sans-serif;
+}
 
 .mat-option {
-    font-family: Inter, "Helvetica Neue", sans-serif;
+    font-family:"Poppins",sans-serif;
     font-size: 16px;
 }
 
@@ -7510,13 +7525,13 @@ blockquote p {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-    font-family: "Inter", "Helvetica", "Arial", sans-serif;
+    font-family:"Poppins",sans-serif;
     font-weight: 300;
     line-height: 1.5em;
 }
 
 .serif-font {
-    font-family: "Inter", "Times New Roman", serif;
+    font-family: "Poppins",sans-serif;
 }
 
 .page-header {

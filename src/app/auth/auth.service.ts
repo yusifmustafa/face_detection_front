@@ -10,7 +10,7 @@ import {ILogin} from "./ILogin";
 
 export const defaultPath = '/';
 const defaultUser = {
-    email: 'natiqmustafa',
+    email: 'yusifmustafa',
     avatarUrl: '../../../../assets/nophoto.jpg'
 };
 
